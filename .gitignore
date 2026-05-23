@@ -20,3 +20,6 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+
+# Documentacion local
+documentacion_proyecto.txt
