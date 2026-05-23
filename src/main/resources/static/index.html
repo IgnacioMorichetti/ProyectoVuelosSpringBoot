@@ -43,24 +43,31 @@
                     </div>
                 </div>
                 <div class="destino-card" onclick="seleccionarDestino('Esquel')">
-                    <div class="card-img" style="background-image: url('img/rutaMendoza.jpg')"></div>
+                    <div class="card-img" style="background-image: url('img/esquel.jpg')"></div>
                     <div class="card-info">
                         <h3>Esquel</h3>
                         <p>La Patagonia en todo su esplendor</p>
                     </div>
                 </div>
                 <div class="destino-card" onclick="seleccionarDestino('Tierra del Fuego')">
-                    <div class="card-img" style="background-image: url('img/avionVolando.jpg')"></div>
+                    <div class="card-img" style="background-image: url('img/tierraDelFuego.jpg')"></div>
                     <div class="card-info">
                         <h3>Tierra del Fuego</h3>
                         <p>El fin del mundo te espera</p>
                     </div>
                 </div>
                 <div class="destino-card" onclick="seleccionarDestino('Misiones')">
-                    <div class="card-img" style="background-image: url('img/avionDespegando.jpg')"></div>
+                    <div class="card-img" style="background-image: url('img/misiones.jpg')"></div>
                     <div class="card-info">
                         <h3>Misiones</h3>
                         <p>Cataratas y selva misionera</p>
+                    </div>
+                </div>
+                <div class="destino-card" onclick="seleccionarDestino('Córdoba')">
+                    <div class="card-img" style="background-image: url('img/cordoba.jpg')"></div>
+                    <div class="card-info">
+                        <h3>Córdoba</h3>
+                        <p>Historia, cultura y sierras</p>
                     </div>
                 </div>
             </div>
@@ -71,15 +78,18 @@
         <div class="container">
             <h2 class="section-title">Buscá tu Vuelo</h2>
             <p class="section-subtitle">Completá tus datos y encontrá el vuelo ideal</p>
-            <form class="reserva-form" id="reservaForm">
-                <div class="form-row">
+            <form class="reserva-form" id="reservaForm" novalidate>
+
+                <div class="form-row form-row--two">
                     <div class="form-group">
                         <label for="origen">Origen</label>
                         <select id="origen" name="origen" required>
                             <option value="">Seleccioná origen</option>
-                            <option value="Buenos Aires">Buenos Aires</option>
+                            <option value="Mendoza">Mendoza</option>
+                            <option value="Esquel">Esquel</option>
+                            <option value="Tierra del Fuego">Tierra del Fuego</option>
+                            <option value="Misiones">Misiones</option>
                             <option value="Córdoba">Córdoba</option>
-                            <option value="Rosario">Rosario</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -90,13 +100,22 @@
                             <option value="Esquel">Esquel</option>
                             <option value="Tierra del Fuego">Tierra del Fuego</option>
                             <option value="Misiones">Misiones</option>
+                            <option value="Córdoba">Córdoba</option>
                         </select>
                     </div>
+                </div>
+
+                <div class="form-row form-row--two">
                     <div class="form-group">
-                        <label for="fecha">Fecha de viaje</label>
-                        <input type="date" id="fecha" name="fecha" required>
+                        <label for="fechaIda">Fecha de ida</label>
+                        <input type="date" id="fechaIda" name="fechaIda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaRegreso">Fecha de regreso</label>
+                        <input type="date" id="fechaRegreso" name="fechaRegreso" required>
                     </div>
                 </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
@@ -111,6 +130,7 @@
                         <input type="number" id="dni" name="dni" placeholder="12345678" required>
                     </div>
                 </div>
+
                 <div class="form-row">
                     <div class="form-group form-group--wide">
                         <label for="email">Correo electrónico</label>
@@ -126,6 +146,9 @@
                         </select>
                     </div>
                 </div>
+
+                <div id="errorValidacion" class="mensaje mensaje-error" style="display:none;"></div>
+
                 <div class="form-actions">
                     <button type="submit" class="btn-submit">Buscar vuelos</button>
                 </div>
