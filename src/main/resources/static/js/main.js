@@ -123,6 +123,50 @@ function mostrarVuelos(vuelos, fechaIda, fechaRegreso) {
     resultadosEl.innerHTML = `<h3 class="resultado-titulo">Vuelos disponibles</h3>${cards}`;
 }
 
+async function buscarReservasPorDni() {
+    const dni = document.getElementById('dniBusqueda').value.trim();
+    const resultadoEl = document.getElementById('reservasResultado');
+
+    if (!dni) {
+        resultadoEl.innerHTML = '<p class="mensaje mensaje-error">Ingresá tu DNI para consultar.</p>';
+        return;
+    }
+
+    resultadoEl.innerHTML = '<p class="mensaje mensaje-vacio">Buscando reservas...</p>';
+
+    try {
+        const res = await fetch(`${API}/reservas/dni/${dni}`);
+        if (!res.ok) throw new Error('Error al conectar con el servidor.');
+
+        const reservas = await res.json();
+
+        if (reservas.length === 0) {
+            resultadoEl.innerHTML = '<p class="mensaje mensaje-vacio">No se encontraron reservas para ese DNI.</p>';
+            return;
+        }
+
+        const cards = reservas.map(r => `
+            <div class="reserva-item">
+                <h4>Reserva N° ${r.numeroReserva} &mdash; ${r.vuelo?.destino?.nombreCiudad || '—'}</h4>
+                <p>
+                    Vuelo: ${r.vuelo?.numeroVuelo || '—'}
+                    &nbsp;|&nbsp;
+                    Aerolínea: ${r.vuelo?.aerolinea?.nombreAerolinea || '—'}
+                    &nbsp;|&nbsp;
+                    Clase: ${r.clase}
+                    &nbsp;|&nbsp;
+                    Fecha: ${r.fechaReserva}
+                </p>
+            </div>
+        `).join('');
+
+        resultadoEl.innerHTML = `<h3 class="resultado-titulo">Reservas encontradas</h3>${cards}`;
+
+    } catch (error) {
+        resultadoEl.innerHTML = '<p class="mensaje mensaje-error">No se pudo conectar con el servidor.</p>';
+    }
+}
+
 async function confirmarReserva(vueloId) {
     const resultadosEl = document.getElementById('resultados');
 

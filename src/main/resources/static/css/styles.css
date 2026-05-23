@@ -362,6 +362,52 @@ body {
 .mensaje-exito  { background: #eaf2eb; border-left: 4px solid var(--verde-medio); color: var(--verde); }
 .mensaje-vacio  { background: var(--arena-oscuro); border-left: 4px solid var(--gris); color: var(--gris); }
 
+/* ── MIS RESERVAS ────────────────────────────────── */
+.mis-reservas {
+    padding: 6rem 0;
+    background-color: var(--arena);
+}
+
+.dni-busqueda {
+    display: flex;
+    gap: 1rem;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+}
+
+.dni-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--arena-oscuro);
+    border-radius: 2px;
+    background-color: var(--blanco);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    color: var(--texto);
+    outline: none;
+    transition: border-color var(--t);
+}
+
+.dni-input:focus { border-color: var(--celeste); }
+
+.reserva-item {
+    background-color: var(--blanco);
+    border-left: 4px solid var(--tierra);
+    border-radius: 2px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 12px var(--sombra);
+}
+
+.reserva-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--verde);
+    margin-bottom: 0.4rem;
+}
+
+.reserva-item p { font-size: 0.875rem; color: var(--gris); }
+
 /* ── FOOTER ──────────────────────────────────────── */
 .footer {
     background-color: var(--verde);
@@ -421,6 +467,7 @@ body {
     .form-group--wide { grid-column: span 1; }
     .vuelo-card { flex-direction: column; gap: 1rem; align-items: flex-start; }
     .footer-content { flex-direction: column; gap: 1.5rem; }
+    .dni-busqueda { flex-direction: column; }
 }
 
 @media (max-width: 480px) {
