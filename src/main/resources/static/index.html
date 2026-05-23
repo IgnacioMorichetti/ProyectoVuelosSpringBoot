@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroVuelos - Descubrí Argentina desde el aire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo-text">AeroVuelos</span>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#reservar">Reservar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Descubrí Argentina desde el aire</h1>
+            <p>Vuelos a los destinos más hermosos del país</p>
+            <a href="#reservar" class="btn-hero">Reservar ahora</a>
+        </div>
+    </section>
+
+    <section class="destinos" id="destinos">
+        <div class="container">
+            <h2 class="section-title">Nuestros Destinos</h2>
+            <p class="section-subtitle">Elegí tu próxima aventura</p>
+            <div class="destinos-grid">
+                <div class="destino-card" onclick="seleccionarDestino('Mendoza')">
+                    <div class="card-img" style="background-image: url('img/paisajeAconcagua.jpg')"></div>
+                    <div class="card-info">
+                        <h3>Mendoza</h3>
+                        <p>Montañas, vinos y paisajes únicos</p>
+                    </div>
+                </div>
+                <div class="destino-card" onclick="seleccionarDestino('Esquel')">
+                    <div class="card-img" style="background-image: url('img/rutaMendoza.jpg')"></div>
+                    <div class="card-info">
+                        <h3>Esquel</h3>
+                        <p>La Patagonia en todo su esplendor</p>
+                    </div>
+                </div>
+                <div class="destino-card" onclick="seleccionarDestino('Tierra del Fuego')">
+                    <div class="card-img" style="background-image: url('img/avionVolando.jpg')"></div>
+                    <div class="card-info">
+                        <h3>Tierra del Fuego</h3>
+                        <p>El fin del mundo te espera</p>
+                    </div>
+                </div>
+                <div class="destino-card" onclick="seleccionarDestino('Misiones')">
+                    <div class="card-img" style="background-image: url('img/avionDespegando.jpg')"></div>
+                    <div class="card-info">
+                        <h3>Misiones</h3>
+                        <p>Cataratas y selva misionera</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reservar" id="reservar">
+        <div class="container">
+            <h2 class="section-title">Buscá tu Vuelo</h2>
+            <p class="section-subtitle">Completá tus datos y encontrá el vuelo ideal</p>
+            <form class="reserva-form" id="reservaForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="origen">Origen</label>
+                        <select id="origen" name="origen" required>
+                            <option value="">Seleccioná origen</option>
+                            <option value="Buenos Aires">Buenos Aires</option>
+                            <option value="Córdoba">Córdoba</option>
+                            <option value="Rosario">Rosario</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="destino">Destino</label>
+                        <select id="destino" name="destino" required>
+                            <option value="">Seleccioná destino</option>
+                            <option value="Mendoza">Mendoza</option>
+                            <option value="Esquel">Esquel</option>
+                            <option value="Tierra del Fuego">Tierra del Fuego</option>
+                            <option value="Misiones">Misiones</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha de viaje</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dni">DNI</label>
+                        <input type="number" id="dni" name="dni" placeholder="12345678" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group form-group--wide">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clase">Clase</label>
+                        <select id="clase" name="clase" required>
+                            <option value="">Seleccioná clase</option>
+                            <option value="ECONOMY">Economy</option>
+                            <option value="TURISTA">Turista</option>
+                            <option value="BUSINESS">Business</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Buscar vuelos</button>
+                </div>
+            </form>
+
+            <div class="resultados" id="resultados"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">AeroVuelos</span>
+                    <p>Conectando destinos, creando memorias.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#destinos">Destinos</a>
+                    <a href="#reservar">Reservar</a>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2026 AeroVuelos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

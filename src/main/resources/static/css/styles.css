@@ -1,0 +1,414 @@
+:root {
+    --tierra:        #8b6f47;
+    --tierra-oscuro: #6b5235;
+    --verde:         #3a5240;
+    --verde-medio:   #5c7a5e;
+    --celeste:       #5b8fa8;
+    --celeste-claro: #a8c4d4;
+    --arena:         #f4efe6;
+    --arena-oscuro:  #e4ddd2;
+    --gris:          #8a8278;
+    --texto:         #2d2926;
+    --blanco:        #faf8f5;
+    --sombra:        rgba(45, 41, 38, 0.12);
+    --t:             0.3s ease;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--texto);
+    background-color: var(--blanco);
+    line-height: 1.6;
+}
+
+/* ── NAVBAR ─────────────────────────────────────── */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(58, 82, 64, 0.93);
+    backdrop-filter: blur(8px);
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--blanco);
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--arena-oscuro);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: color var(--t);
+}
+
+.nav-links a:hover { color: var(--blanco); }
+
+/* ── HERO ────────────────────────────────────────── */
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('../img/avionDespegando.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(45, 41, 38, 0.52) 0%,
+        rgba(58, 82, 64, 0.48) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--blanco);
+    max-width: 700px;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    color: var(--arena);
+    letter-spacing: 0.5px;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background-color: var(--tierra);
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background-color var(--t), transform var(--t);
+}
+
+.btn-hero:hover {
+    background-color: var(--tierra-oscuro);
+    transform: translateY(-2px);
+}
+
+/* ── UTILIDADES ──────────────────────────────────── */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--verde);
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gris);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+/* ── DESTINOS ────────────────────────────────────── */
+.destinos {
+    padding: 6rem 0;
+    background-color: var(--arena);
+}
+
+.destinos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.destino-card {
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--sombra);
+    cursor: pointer;
+    transition: transform var(--t), box-shadow var(--t);
+}
+
+.destino-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 32px rgba(45, 41, 38, 0.2);
+}
+
+.card-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.destino-card:hover .card-img { transform: scale(1.05); }
+
+.card-info {
+    padding: 1.25rem 1.5rem;
+    background-color: var(--blanco);
+}
+
+.card-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--verde);
+    margin-bottom: 0.25rem;
+}
+
+.card-info p {
+    font-size: 0.875rem;
+    color: var(--gris);
+    font-weight: 300;
+}
+
+/* ── FORMULARIO ──────────────────────────────────── */
+.reservar {
+    padding: 6rem 0;
+    background-color: var(--blanco);
+}
+
+.reserva-form {
+    background-color: var(--arena);
+    border-radius: 3px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 24px var(--sombra);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group--wide { grid-column: span 2; }
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--verde);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--arena-oscuro);
+    border-radius: 2px;
+    background-color: var(--blanco);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    color: var(--texto);
+    outline: none;
+    transition: border-color var(--t);
+}
+
+.form-group input:focus,
+.form-group select:focus { border-color: var(--celeste); }
+
+.form-group input::placeholder { color: var(--gris); font-weight: 300; }
+
+.form-actions { text-align: center; margin-top: 1.75rem; }
+
+.btn-submit {
+    padding: 0.9rem 3rem;
+    background-color: var(--verde);
+    color: var(--blanco);
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color var(--t), transform var(--t);
+}
+
+.btn-submit:hover {
+    background-color: var(--verde-medio);
+    transform: translateY(-2px);
+}
+
+/* ── RESULTADOS ──────────────────────────────────── */
+.resultados { margin-top: 2.5rem; }
+
+.resultado-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--verde);
+    margin-bottom: 1.25rem;
+}
+
+.vuelo-card {
+    background-color: var(--arena);
+    border-left: 4px solid var(--celeste);
+    border-radius: 2px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 12px var(--sombra);
+}
+
+.vuelo-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--verde);
+    margin-bottom: 0.25rem;
+}
+
+.vuelo-info p { font-size: 0.875rem; color: var(--gris); }
+
+.btn-reservar {
+    padding: 0.6rem 1.5rem;
+    background-color: var(--tierra);
+    color: var(--blanco);
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color var(--t);
+    white-space: nowrap;
+}
+
+.btn-reservar:hover { background-color: var(--tierra-oscuro); }
+
+.mensaje {
+    padding: 1.25rem 1.5rem;
+    border-radius: 2px;
+    font-size: 0.95rem;
+}
+
+.mensaje-error  { background: #f9ebe8; border-left: 4px solid #c0706a; color: #8b3a35; }
+.mensaje-exito  { background: #eaf2eb; border-left: 4px solid var(--verde-medio); color: var(--verde); }
+.mensaje-vacio  { background: var(--arena-oscuro); border-left: 4px solid var(--gris); color: var(--gris); }
+
+/* ── FOOTER ──────────────────────────────────────── */
+.footer {
+    background-color: var(--verde);
+    color: var(--arena);
+    padding: 3rem 0 1.5rem;
+}
+
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.footer .logo-text { color: var(--blanco); }
+
+.footer-brand p {
+    font-size: 0.875rem;
+    color: var(--celeste-claro);
+    margin-top: 0.4rem;
+    font-weight: 300;
+}
+
+.footer-links { display: flex; gap: 2rem; align-items: center; }
+
+.footer-links a {
+    color: var(--arena-oscuro);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color var(--t);
+}
+
+.footer-links a:hover { color: var(--blanco); }
+
+.footer-copy {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--verde-medio);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    .destinos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-group--wide { grid-column: span 1; }
+    .vuelo-card { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .footer-content { flex-direction: column; gap: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .destinos-grid { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 2rem; }
+    .hero { background-attachment: scroll; }
+}
